@@ -11,9 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727024253) do
+ActiveRecord::Schema.define(version: 20140728221127) do
 
-  create_table "url_tables", force: true do |t|
+  create_table "urls", force: true do |t|
+    t.string   "long_url"
+    t.string   "short_code"
+    t.string   "unique_views"
+    t.string   "ip_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
