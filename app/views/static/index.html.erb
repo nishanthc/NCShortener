@@ -1,23 +1,23 @@
 <header>
-  <h2>Simple Rails URL Short</h2>
+  <h2><%= Rails.application.config.application_name %></h2>
   <p><% if !flash[:notice].blank? %>
   <%= flash[:notice] %>
   <% end %></p>
 </header>
 <%= form_for(:url, :url => {:class => "url", :controller => 'urls', :action => 'create'}) do |f| %>
   <div class="row half">
-    <div class="12u"><%= f.text_field(:long_url,class: 'text', type: "text", placeholder:"Enter a URL") %></div>
 
 <% if !@long_url.blank? %>
-<%= @long_url %>
+<div class="12u"><%= f.text_field(:long_url,class: 'text', type: "text", placeholder:@long_url) %></div>
 <% else %>
-Enter a URL
+<div class="12u"><%= f.text_field(:long_url,class: 'text', type: "text", placeholder:"Enter a URL") %></div>
 <% end %>
+
 
 <% if !@short_code.blank? %>
 <br>
 <center>Your Short URL:</center>
-<div class="12u"><%= f.text_field(:short_url,class: 'text', type: "text", value:'http://nish.io/'+@short_code) %></div>
+<div class="12u"><%= f.text_field(:short_url,class: 'text', type: "text", value: Rails.application.config.url+@short_code) %></div>
 <% end %>
   </div>
 

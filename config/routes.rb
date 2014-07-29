@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  match "/:short_code" => "urls#longify", :via => [:get, :post]
   root :to => "static#index"
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
