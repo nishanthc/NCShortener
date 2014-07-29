@@ -1,5 +1,22 @@
-<h1>Welcome to NCShortener</h1>
-<p>Using this Rails app you will be able to shorten URLs</p>
-<%=
-1+1
-%>
+
+
+<header>
+  <h2>Nisl sed ultricies</h2>
+  <p>Diam dignissim lectus eu ornare volutpat orci.</p>
+</header>
+<%= form_for(:url, :url => {:class => "url", :controller => 'urls', :action => 'create'}) do |f| %>
+  <div class="row half">
+    <div class="12u"><%= f.text_field(:long_url,class: 'text', type: "text", placeholder:"Enter a URL") %></div>
+
+  </div>
+
+  <div class="row">
+    <div class="12u">
+      <ul class="actions">
+
+         <%= submit_tag("Shorten",:name=>"submit") %>
+
+      </ul>
+    </div>
+  </div>
+<% end %>

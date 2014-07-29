@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140728221127) do
   create_table "urls", force: true do |t|
     t.string   "long_url"
     t.string   "short_code"
-    t.string   "unique_views"
+    t.integer  "unique_views", default: 0
     t.string   "ip_address"
     t.datetime "created_at"
     t.datetime "updated_at"
